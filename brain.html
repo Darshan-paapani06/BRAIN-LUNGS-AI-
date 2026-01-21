@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>HealthAI – Brain MRI Assistant</title>
+    <link rel="stylesheet" href="assets/style.css" />
+</head>
+
+<body>
+    <nav>
+        <div class="container row">
+            <div class="brand"><strong>HealthAI Care</strong></div>
+            <div>
+                <a href="index.html" class="btn">Home</a>
+                <a href="brain.html" class="btn" style="margin-left:8px">Brain</a>
+                <a href="lung.html" class="btn" style="margin-left:8px">Lung</a>
+            </div>
+        </div>
+    </nav>
+
+    <main class="container hero">
+        <section class="card">
+            <h2>🧠 Brain Tumor Triage Tool</h2>
+            <p class="muted">
+                Upload a brain MRI slice. The model returns a quick risk signal with a short explanation. This is for early screening support only – not a medical diagnosis.
+            </p>
+
+            <div class="chips">
+                <span class="chip"><i>🖼️</i>Single MRI image</span>
+                <span class="chip"><i>🧾</i>~299 × 299 px</span>
+                <span class="chip"><i>🔒</i>Runs on your device</span>
+            </div>
+
+            <div class="dropzone" data-zone="brain" style="margin-top:12px">
+                <input id="brain-file" type="file" accept="image/*" />
+                <label for="brain-file">📤 Select or drop an MRI image</label>
+                <p class="dz-info" data-info="brain">No file selected yet.</p>
+                <img id="preview-brain" class="preview" alt="Brain MRI preview" />
+            </div>
+
+            <div style="margin-top:10px">
+                <button class="contrast" data-analyze="brain">
+          ▶ Run Brain MRI Analysis
+        </button>
+            </div>
+
+            <div class="progress">
+                <span id="brain-bar"></span>
+            </div>
+
+            <div id="brain-result" class="card" style="margin-top:12px">
+                Analysis result will appear here after you upload an image and run the model.
+            </div>
+        </section>
+    </main>
+
+    <footer class="container" style="padding-bottom:24px">
+        <small>
+      © <span id="y"></span> HealthAI • Experimental demo, not a certified medical device.
+    </small>
+    </footer>
+
+    <script>
+        window.API_BASE = "";
+    </script>
+    <script type="module" src="assets/app.js"></script>
+</body>
+
+</html>

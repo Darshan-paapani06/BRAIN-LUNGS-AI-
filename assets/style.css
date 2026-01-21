@@ -1,0 +1,81 @@
+:root{
+  --bg:#0f172a; --bg2:#111827;
+  --card:rgba(255,255,255,.08);
+  --text:#e5e7eb; --text-dim:#9ca3af;
+  --brand:#60a5fa; --accent:#34d399; --danger:#f87171;
+  --border:rgba(255,255,255,.15); --shadow:0 8px 30px rgba(0,0,0,.4);
+}
+
+*{box-sizing:border-box} html,body{height:100%}
+body{
+  margin:0; font-family:ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial;
+  color:var(--text);
+  --emoji-bg: url("data:image/svg+xml;utf8,\
+<svg xmlns='http://www.w3.org/2000/svg' width='180' height='180' opacity='.07'>\
+<text x='18' y='54' font-size='36'>🧑‍⚕️</text>\
+<text x='120' y='90' font-size='30'>🩺</text>\
+<text x='70' y='150' font-size='30'>🙂</text>\
+</svg>");
+  background:
+    var(--emoji-bg) repeat,
+    radial-gradient(1200px 800px at 10% -10%, #1e293b 0%, var(--bg) 50%) no-repeat,
+    radial-gradient(900px 600px at 110% 10%, #1f2937 0%, var(--bg2) 50%) no-repeat,
+    var(--bg2);
+  background-size: 180px 180px, auto, auto, auto;
+}
+
+/* disable optional hero image to avoid 404s
+body::before{
+  content:""; position:fixed; inset:0; pointer-events:none;
+  background:url("assets/hero_health.jpg") center/cover no-repeat;
+  opacity:.12; mix-blend-mode:screen;
+}
+*/
+
+.container{max-width:1100px;margin:0 auto;padding:24px}
+.hero{padding-top:32px}
+
+nav{position:sticky; top:0; z-index:40; backdrop-filter:blur(10px);
+  background:rgba(15,23,42,.6); border-bottom:1px solid var(--border)}
+nav .row{display:flex;align-items:center;justify-content:space-between;gap:12px}
+nav a{color:var(--text);text-decoration:none;opacity:.9} nav a:hover{opacity:1}
+nav .brand{display:flex;gap:10px;align-items:center}
+.badge{display:inline-block;padding:2px 8px;border-radius:999px;
+  background:rgba(96,165,250,.15); border:1px solid rgba(96,165,250,.35); color:#bfdbfe; font-size:12px}
+
+.card{background:var(--card); border:1px solid var(--border); border-radius:16px; padding:20px; box-shadow:var(--shadow)}
+.grid-2{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+@media (max-width:900px){.grid-2{grid-template-columns:1fr}}
+
+h1,h2,h3{margin:0 0 10px} h1{font-size:32px} h2{font-size:24px}
+.muted{color:var(--text-dim)} hr{border:0;border-top:1px solid var(--border);margin:12px 0}
+
+/* Buttons */
+button,.btn{appearance:none;border:1px solid var(--border);color:var(--text);
+  background:rgba(255,255,255,.06); padding:10px 14px;border-radius:12px;cursor:pointer;
+  transition:transform .05s ease, background .2s ease, border-color .2s ease}
+button:hover,.btn:hover{background:rgba(255,255,255,.1)}
+button.contrast{background:linear-gradient(120deg,var(--brand),#7c3aed);border-color:transparent}
+button.contrast:hover{filter:brightness(1.05)}
+.btn{display:inline-block}
+
+/* Dropzone */
+.dropzone{position:relative;border:1.5px dashed var(--border);border-radius:14px;padding:18px;text-align:center;background:rgba(255,255,255,.04)}
+.dropzone.drag{border-color:var(--brand);box-shadow:0 0 0 3px rgba(96,165,250,.25) inset}
+.dropzone input[type=file]{position:absolute;inset:0;opacity:0;width:100%;height:100%;cursor:pointer}
+.dropzone label{display:block;margin-bottom:8px}
+.preview{display:none;margin:10px auto;border-radius:12px;max-width:100%;max-height:320px;border:1px solid var(--border)}
+
+/* Progress bar */
+.progress{height:6px;background:rgba(255,255,255,.06);border-radius:6px;overflow:hidden;margin-top:10px}
+.progress>span{display:block;height:100%;width:0%;background:linear-gradient(90deg,var(--brand),var(--accent));transition:width .35s ease}
+
+/* Result + edu */
+.edu.card p{margin:.35rem 0}
+.verdict{font-size:18px;margin:6px 0 10px}
+
+/* Info chips */
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:6px}
+.chip{display:inline-flex;align-items:center;gap:6px;padding:6px 10px;border:1px solid var(--border);
+  border-radius:999px;background:rgba(255,255,255,.06);font-size:13px}
+.chip i{font-style:normal;opacity:.9}

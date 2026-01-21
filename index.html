@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>HealthAI — Smart Diagnostics</title>
+  <link rel="stylesheet" href="assets/style.css" />
+</head>
+<body>
+  <nav>
+    <div class="container row">
+      <div class="brand"><strong>HealthAI</strong> <span class="badge">Research preview</span></div>
+      <div>
+        <a href="brain.html" class="btn">Brain</a>
+        <a href="lung.html"  class="btn" style="margin-left:8px">Lung</a>
+      </div>
+    </div>
+  </nav>
+
+  <main class="container hero">
+    <div class="grid-2">
+      <section class="card">
+        <h1>AI-assisted medical image screening</h1>
+        <p class="muted">Upload an image and get a single, clear verdict with short educational guidance. Models run locally via a Flask API.</p>
+        <div style="margin-top:10px; display:flex; gap:10px; flex-wrap:wrap">
+          <a class="btn contrast" href="brain.html">Analyze Brain MRI →</a>
+          <a class="btn" href="lung.html">Analyze Chest X-ray →</a>
+        </div>
+        <hr/>
+        <div class="muted">Server health: <code id="status">checking…</code></div>
+      </section>
+
+      <section class="card">
+        <h2>What the app does</h2>
+        <ul class="muted">
+          <li>Preprocesses the image safely and runs the relevant model.</li>
+          <li>Returns a <em>single top prediction</em> with short “what/why/next” notes.</li>
+          <li>Designed as a <strong>triage assist</strong> to support—never replace—clinical judgment.</li>
+        </ul>
+        <p class="muted" style="margin-top:8px">Educational content only. Not a diagnosis or prescription.</p>
+      </section>
+    </div>
+  </main>
+
+  <footer class="container" style="padding-bottom:24px">
+    <small>© <span id="y"></span> HealthAI.</small>
+  </footer>
+
+  <script>
+    // Same-origin API (works on Render in one service)
+    window.API_BASE = "";
+  </script>
+  <script type="module" src="assets/app.js"></script>
+</body>
+</html>

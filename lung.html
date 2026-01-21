@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>HealthAI — Lung Disease Screening</title>
+  <link rel="stylesheet" href="assets/style.css" />
+</head>
+<body>
+  <nav>
+    <div class="container row">
+      <div class="brand"><strong>HealthAI</strong></div>
+      <div>
+        <a href="index.html" class="btn">Home</a>
+        <a href="brain.html" class="btn" style="margin-left:8px">Brain</a>
+      </div>
+    </div>
+  </nav>
+
+  <main class="container hero">
+    <section class="card">
+      <h2>🫁 Lung Disease Screening</h2>
+      <p class="muted">Upload a Chest X-ray. You’ll get one verdict plus short education. (Not a diagnosis.)</p>
+
+      <div class="chips">
+        <span class="chip"><i>🖼️</i>Chest X-ray</span>
+        <span class="chip"><i>📐</i>~224×224</span>
+        <span class="chip"><i>🛡️</i>On-device</span>
+      </div>
+
+      <div class="dropzone" data-zone="lung" style="margin-top:12px">
+        <input id="lung-file" type="file" accept="image/*" />
+        <label for="lung-file">📤 Choose or drop Chest X-ray</label>
+        <p class="dz-info" data-info="lung">No file selected.</p>
+        <img id="preview-lung" class="preview" alt="Preview"/>
+      </div>
+
+      <div style="margin-top:10px"><button class="contrast" data-analyze="lung">Analyze X-ray</button></div>
+      <div class="progress"><span id="lung-bar"></span></div>
+      <div id="lung-result" class="card" style="margin-top:12px">No analysis yet.</div>
+    </section>
+  </main>
+
+  <footer class="container" style="padding-bottom:24px">
+    <small>© <span id="y"></span> HealthAI.</small>
+  </footer>
+
+  <script>window.API_BASE = "";</script>
+  <script type="module" src="assets/app.js"></script>
+</body>
+</html>

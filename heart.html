@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>HealthAI — Heart Indicators</title>
+  <link rel="stylesheet" href="assets/style.css" />
+</head>
+<body>
+  <nav>
+    <div class="container">
+      <div><strong>HealthAI</strong></div>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="brain.html">Brain</a></li>
+        <li><a href="lung.html">Lung</a></li>
+        <li><strong>Heart</strong></li>
+      </ul>
+    </div>
+  </nav>
+
+  <main class="container hero">
+    <div class="card">
+      <h2>Heart Risk Indicators</h2>
+      <p class="muted">Stub endpoint. Replace later with ECG/Echo model.</p>
+
+      <div class="dropzone" data-zone="heart" style="margin-top:10px">
+        <input id="heart-file" type="file" accept="image/*" />
+        <label for="heart-file">📤 Choose or drop ECG / Echo frame</label>
+        <p class="dz-info" data-info="heart">No file selected.</p>
+        <img id="preview-heart" class="preview" alt="Preview"/>
+      </div>
+
+      <div class="buttons" style="margin-top:10px">
+        <button class="contrast" data-analyze="heart">Analyze Heart</button>
+      </div>
+      <div class="progress"><span id="heart-bar"></span></div>
+      <div id="heart-result" class="card" style="margin-top:12px">No analysis yet.</div>
+    </div>
+  </main>
+
+  <footer class="container">
+    <small>© <span id="y"></span> HealthAI.</small>
+  </footer>
+
+  <script src="assets/app.js"></script>
+</body>
+</html>
